@@ -1,0 +1,8 @@
+/build/
+/config/
+/dist/
+/src/utils/
+/src/router/*.js
+/node_modules/
+*.vue
+*.js

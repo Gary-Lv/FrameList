@@ -1,0 +1,37 @@
+// 引入npm私服上的换肤函数(测试线上)
+@import "~ys-ui/YsStyle/YsTheme/index.less";
+// 引入本地需要修改的样式文件
+@import "./systemTheme/pageBack.less";
+
+//蓝色
+.lan-theme {
+  @mainColor: rgba(58, 95, 157, 1);
+  @bodyBackground: rgba(209, 62, 57, 1);
+  .ChangeTheme(@mainColor, @bodyBackground);
+  // 项目自定义组件/页面主题
+  .pageBack(rgba(58, 95, 157, 0.3));
+}
+//红色
+.red-theme {
+  @mainColor: rgba(209, 62, 57, 1);
+  @bodyBackground: rgba(58, 95, 157, 1);
+  .ChangeTheme(@mainColor, @bodyBackground);
+  // 项目自定义组件/页面主题
+  .pageBack(rgba(209, 62, 57, 0.3));
+}
+//天空蓝
+.tlan-theme {
+  @mainColor: rgba(86, 177, 252, 1);
+  @bodyBackground: rgba(209, 62, 57, 1);
+  .ChangeTheme(@mainColor, @bodyBackground);
+  // 项目自定义组件/页面主题
+  .pageBack(rgba(209, 62, 57, 0.3));
+}
+// 黄色
+.yellow-theme {
+  @mainColor: rgba(255, 183, 0, 1);
+  @bodyBackground: rgba(60, 65, 71, 1);
+  .ChangeTheme(@mainColor, @bodyBackground);
+  // 项目自定义组件/页面主题
+  .pageBack(rgba(255, 183, 0, 0.3));
+}

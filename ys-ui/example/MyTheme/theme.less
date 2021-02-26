@@ -1,0 +1,24 @@
+// 引入的本地换肤函数
+// @import "../../YsTheme/changeTheme.less";
+
+// 引入npm私服上的换肤函数(测试线上)
+@import "~ys-ui/YsStyle/YsTheme/index.less";
+
+//蓝色
+.lan-theme {
+  @mainColor: rgba(58, 95, 157, 1);
+  @bodyBackground: rgba(209, 62, 57, 1);
+  .ChangeTheme(@mainColor, @bodyBackground);
+}
+//红色
+.red-theme {
+  @mainColor: rgba(209, 62, 57, 1);
+  @bodyBackground: rgba(58, 95, 157, 1);
+  .ChangeTheme(@mainColor, @bodyBackground);
+}
+//天空蓝
+.tlan-theme {
+  @mainColor: rgba(86, 177, 252, 1);
+  @bodyBackground: rgba(209, 62, 57, 1);
+  .ChangeTheme(@mainColor, @bodyBackground);
+}
