@@ -4,15 +4,13 @@
 const program = require("commander");
 const chalk = require("chalk");
 
-const cleanAegs = require("../utils/common");
-
 // 核心功能 1、创建项目 2、更改配置文件 3、UI界面
 
 /**
  * create 命令
  */
 program
-  .command("create <app-name>")
+  .command("create [app-name]")
   .description("create a new project")
   .option("-f, --force", "overwrite target directory if it exists")
   .action((name, cmd) => {

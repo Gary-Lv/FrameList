@@ -22,7 +22,7 @@ async function wrapLoading(fn, message, ...agrs) {
   } catch (e) {
     spinner.fail("请求失败！准备重新请求...");
     // second += 1;
-    await sleep(1200);
+    await sleep(1500);
     return wrapLoading(fn, message, ...agrs);
   }
 }
