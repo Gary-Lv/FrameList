@@ -19,6 +19,18 @@ program
   });
 
 /**
+ * init 命令
+ */
+program
+  .command("init <app-name>")
+  .description("Initialize a new project")
+  .action((name) => {
+    // 执行初始化脚本创建
+    // 调用create脚本执行操作
+    require("../lib/create")(name, { force: true }, true);
+  });
+
+/**
  * config 配置
  */
 program
