@@ -15,6 +15,7 @@ program
   .option("-f, --force", "overwrite target directory if it exists")
   .action((name, cmd) => {
     // 调用create脚本执行操作
+    cmd.serveTarget = "";
     require("../lib/create")(name, cmd);
   });
 
@@ -22,12 +23,13 @@ program
  * init 命令
  */
 program
-  .command("init <app-name>")
+  .command("init <app-name> [positions]")
   .description("Initialize a new project")
-  .action((name) => {
+  .option("-t,--target", "配置项目服务请求地址！")
+  .action((name, cmd) => {
     // 执行初始化脚本创建
     // 调用create脚本执行操作
-    require("../lib/create")(name, { force: true }, true);
+    require("../lib/create")(name, { force: true, serveTarget: cmd }, true);
   });
 
 /**

@@ -11,11 +11,13 @@ const { repoName } = require("./config");
 const InstallActions = require("./install");
 
 class Creator {
-  constructor(projectName, targetDir) {
+  constructor(projectName, targetDir, serveTarget) {
     this._name = projectName;
     this._target = targetDir;
+    // 配置的服务请求地址
+    this._serveTarget = serveTarget;
     // 将不支持promise的方法转换成promise方法
-    this.downloadGitRepo = util.promisify(downloadGitRepo);
+    this.P_downloadGitRepo = util.promisify(downloadGitRepo);
   }
   // 获取模板 暂无用
   async fetchRepo() {
@@ -75,34 +77,49 @@ class Creator {
     const spinner = ora("下载中...");
     spinner.start();
     try {
-      await downloadGitRepo(
+      let down_result = await this.P_downloadGitRepo(
         // `${repoName}/${repo}${tag ? "#" + tag : ""}`,
         use_result && use_result.isUseOwn ? use_result.templateName : repoName,
-        path.join(process.cwd(), this._name),
-        (e) => {
-          if (!e) {
-            console.log();
-            spinner.succeed(console.log(chalk.green("下载资源成功！")));
-            // 重命名
-            const packageFile = `${this._name}/package.json`;
-            this.renameFile(packageFile, this._name);
-            // 将项目配置文件拷入指定目录
-            wrapLoading(copyConfig, "正在生成配置文件......", this._name);
-            // 安装项目依赖
-            // 如果是通过init初始化  不需要主动安装依赖
-            if (!isInit) {
-              new InstallActions({
-                fileUrl: this._name,
-                mode: use_result.mode,
-              });
-            }
-          } else {
-            spinner.fail(console.log(chalk.red("下载资源失败！")));
-          }
-        }
+        path.join(process.cwd(), this._name)
       );
+      // 下载成功
+      if (!down_result) {
+        console.log();
+        spinner.succeed(console.log(chalk.green("下载资源成功！")));
+        // 重命名
+        const packageFile = `${this._name}/package.json`;
+        this.renameFile(packageFile, this._name);
+        // 将项目配置文件拷入指定目录
+        let result = await wrapLoading(
+          copyConfig,
+          "正在生成配置文件......",
+          this._name,
+          this._serveTarget
+        );
+        if (!result) {
+          console.log();
+          console.log(chalk.green("生成配置文件成功！"));
+        } else {
+          console.log();
+          console.log(chalk.red("生成配置文件失败！"));
+        }
+        // 安装项目依赖
+        // 如果是通过init初始化  不需要主动安装依赖
+        if (!isInit) {
+          new InstallActions({
+            fileUrl: this._name,
+            mode: use_result.mode,
+          });
+        }
+      } else {
+        console.log();
+        console.log(chalk.red("下载资源失败！"));
+        spinner.fail();
+      }
     } catch (e) {
-      spinner.fail(chalk.red("下载资源失败！"));
+      console.log();
+      console.log(chalk.red("下载资源失败！"));
+      spinner.fail();
     }
   }
   // package.json name重命名

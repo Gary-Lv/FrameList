@@ -3,7 +3,7 @@ const path = require("path");
 const fse = require("fs-extra");
 const Inquirer = require("inquirer");
 const chalk = require("chalk");
-const { serviceProxy, configInfo } = require("./config");
+const { serviceProxy } = require("./config");
 
 async function sleep(n) {
   return new Promise((resolve, reject) => setTimeout(resolve, n));
@@ -66,20 +66,47 @@ async function checkFile(options, projectName) {
   return targetDir;
 }
 
+/**
+ * 生成模板项目中的config.js文件
+ *  serveInfo 用户输入的请求地址配置
+ */
+function create_Pro_config(serveInfo) {
+  if (serveInfo) {
+    serviceProxy.BaseUrl = serveInfo;
+  }
+  const configInfo = `const configInfo = {
+    serviceProxy: ${JSON.stringify(serviceProxy)},
+    PaaSCode: "00",
+    ThemeIndex: 1,
+    IsBreadcrumb: true,
+    IsHeaderTab: true,
+    IsShowCollapsedBtn: true,
+    DefUnfold: true,
+    IsCaptchaVerify: false,
+  };
+  let NotAlter = (obj) => {
+    if (typeof obj === "object" && obj != null) {
+      for (let key in obj) {
+        if (typeof key === "object" && key != null) {
+          NotAlter(key);
+        } else {
+          Object.defineProperty(obj, key, { writable: false });
+        }
+      }
+    }
+  };
+  NotAlter(configInfo);
+  window.GlobalConfig = configInfo;`;
+  return configInfo;
+}
+
 // 拷贝配置好的文件到指定的目录下
-async function copyConfig(projectName) {
+async function copyConfig(projectName, serveInfo) {
   let configUrl = `${projectName}/public/config/config.js`;
   // 创建文件
   await fse.createFileSync(configUrl);
   // 写入数据
-  let result = await fse.writeFileSync(configUrl, configInfo);
-  if (!result) {
-    console.log();
-    console.log(chalk.green("生成配置文件成功！"));
-  } else {
-    console.log();
-    console.log(chalk.red("生成配置文件失败！"));
-  }
+  return await fse.writeFileSync(configUrl, create_Pro_config(serveInfo));
 }
 
 module.exports = { sleep, wrapLoading, checkFile, copyConfig };
