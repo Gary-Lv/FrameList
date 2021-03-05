@@ -1,75 +1,84 @@
 <template>
   <div id="app">
-    <YsButton>默认按钮</YsButton>&nbsp;&nbsp;
-    <ys-button type="primary">主要按钮</ys-button>&nbsp;&nbsp;
-    <ys-button type="info">信息按钮</ys-button>&nbsp;&nbsp;
-    <ys-button type="success">成功按钮</ys-button>&nbsp;&nbsp;
-    <ys-button type="warning">警告按钮</ys-button>&nbsp;&nbsp;
-    <ys-button type="error">错误按钮</ys-button>
-    <br /><br />
-    <!-- 带图标的按钮 -->
-    <ys-button icon="icon-circle-plus-outline">我是带图标的</ys-button>&nbsp;&nbsp;
-    <ys-button icon="icon-edit" type="error">我是左侧带图标的</ys-button>&nbsp;&nbsp;
-    <ys-button icon="icon-delete" type="success" iconPositon="right">我是右侧带图标的</ys-button>
-    <br><br>
-    <!-- loading 按钮 -->
-    <ys-button type="primary" loading>禁用loading按钮</ys-button>&nbsp;&nbsp;
-    <ys-button disabled>禁用按钮</ys-button>
-    <br><br>
-    <!-- 按钮组 -->
-    <ys-button-group>
-      <ys-button type="primary">上一页</ys-button>
-      <ys-button type="primary">下一页</ys-button>
-    </ys-button-group>
-    <!-- icon图标 -->
-    <ys-icon icon="icon-circle-check-outline"></ys-icon>
-    <br><br><br><br>
-    <h1>IView组件</h1>
-    <Button>Default</Button>&nbsp;&nbsp;
-    <Button type="primary">Primary</Button>&nbsp;&nbsp;
-    <Button type="dashed">Dashed</Button>&nbsp;&nbsp;
-    <Button type="text">Text</Button>&nbsp;&nbsp;
-    <Button type="info">Info</Button>&nbsp;&nbsp;
-    <Button type="success">Success</Button>&nbsp;&nbsp;
-    <Button type="warning">Warning</Button>&nbsp;&nbsp;
-    <Button type="error">Error</Button>
-    <br><br>
-    <h3>修改颜色</h3>
-    <Button type="primary" @click="ChanageTheme(1)">蓝色</Button>&nbsp;&nbsp;
-    <Button type="primary" @click="ChanageTheme(2)">红色</Button>&nbsp;&nbsp;
-    <Button type="primary" @click="ChanageTheme(3)">天蓝色</Button>&nbsp;&nbsp;
-    <h3>其它组件</h3>
-    <Input v-model="value" placeholder="Enter something..." style="width: 300px" />
-    <Input search placeholder="Enter something..." style="width: 300px" />
-    <RadioGroup v-model="phone">
-      <Radio label="apple">
-        <Icon type="logo-apple"></Icon>
-        <span>Apple</span>
-      </Radio>
-      <Radio label="android">
-        <Icon type="logo-android"></Icon>
-        <span>Android</span>
-      </Radio>
-      <Radio label="windows">
-        <Icon type="logo-windows"></Icon>
-        <span>Windows</span>
-      </Radio>
-    </RadioGroup>
-    <CheckboxGroup v-model="fruit">
-      <Checkbox label="香蕉"></Checkbox>
-      <Checkbox label="苹果"></Checkbox>
-      <Checkbox label="西瓜"></Checkbox>
-    </CheckboxGroup>
-    <Switch size="large" />
-    <Select v-model="model1" style="width:200px">
-      <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-    </Select>
-    <DatePicker type="date" placeholder="Select date" style="width: 200px"></DatePicker>
+    <div class="homePage pageBackground">
+      <h1>换肤功能</h1>
+      <Button style="background:rgba(58, 95, 157, 1);color:white" @click="ChanageTheme(1)">蓝色</Button>&nbsp;&nbsp;
+      <Button style="background:rgba(209, 62, 57, 1);color:white" @click="ChanageTheme(2)">红色</Button>&nbsp;&nbsp;
+      <Button style="background:rgba(86, 177, 252, 1);color:white" @click="ChanageTheme(3)">天蓝色</Button>&nbsp;&nbsp;
+      <Button style="background:rgba(255, 183, 0, 1);color:white" @click="ChanageTheme(4)">黄色</Button>&nbsp;&nbsp;
+      <br><br><br><br>
+      <h1>YsUI自定义组件</h1>
+      <YsButton>默认按钮</YsButton>&nbsp;&nbsp;
+      <ys-button type="primary">主要按钮</ys-button>&nbsp;&nbsp;
+      <ys-button type="info">信息按钮</ys-button>&nbsp;&nbsp;
+      <ys-button type="success">成功按钮</ys-button>&nbsp;&nbsp;
+      <ys-button type="warning">警告按钮</ys-button>&nbsp;&nbsp;
+      <ys-button type="error">错误按钮</ys-button>
+      <br /><br />
+      <!-- 带图标的按钮 -->
+      <ys-button icon="icon-circle-plus-outline">我是带图标的</ys-button>&nbsp;&nbsp;
+      <ys-button icon="icon-edit" type="error">我是左侧带图标的</ys-button>&nbsp;&nbsp;
+      <ys-button icon="icon-delete" type="success" iconPositon="right">我是右侧带图标的</ys-button>
+      <br><br>
+      <!-- loading 按钮 -->
+      <ys-button type="primary" loading>禁用loading按钮</ys-button>&nbsp;&nbsp;
+      <ys-button disabled>禁用按钮</ys-button><br><br>
+      <ys-button-group>
+        <ys-button type="primary">主要按钮</ys-button>
+        <ys-button type="primary">信息按钮</ys-button>
+      </ys-button-group>
+
+      <br><br><br><br>
+      <h1>IView组件</h1>
+      <Button type="primary">Primary</Button>
+      <br><br>
+      <Input v-model="value" placeholder="Enter something..." style="width: 300px" /><br><br>
+      <Input search placeholder="Enter something..." style="width: 300px" /><br><br>
+      <RadioGroup v-model="phone">
+        <Radio label="apple">
+          <Icon type="logo-apple"></Icon>
+          <span>Apple</span>
+        </Radio>
+        <Radio label="android">
+          <Icon type="logo-android"></Icon>
+          <span>Android</span>
+        </Radio>
+        <Radio label="windows">
+          <Icon type="logo-windows"></Icon>
+          <span>Windows</span>
+        </Radio>
+      </RadioGroup><br><br>
+      <CheckboxGroup v-model="fruit">
+        <Checkbox label="香蕉"></Checkbox>
+        <Checkbox label="苹果"></Checkbox>
+        <Checkbox label="西瓜"></Checkbox>
+      </CheckboxGroup><br><br>
+      <iSwitch size="large">
+        <span slot="open">开</span>
+        <span slot="close">关</span>
+      </iSwitch>&nbsp;&nbsp;
+      <iSwitch true-color="#13ce66" false-color="#ff4949" />&nbsp;&nbsp;
+      <iSwitch size="small" />
+      <br><br>
+      <Select v-model="model1" style="width:200px">
+        <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+      </Select><br><br>
+      <DatePicker type="date" placeholder="Select date" style="width: 200px"></DatePicker>
+
+      <br><br><br><br>
+      <h1>基于IView组件封装</h1>
+      <ys-button-iv type="primary">测试组件</ys-button-iv>
+      <br><br><br><br>
+    </div>
   </div>
 </template>
 
 <script>
+  import YsButtonIv from '../packages/components/YSButtonIv/YsButtonIv.vue';
   export default {
+    components: {
+      YsButtonIv
+    },
     name: "App",
     data() {
       return {
@@ -116,6 +125,9 @@
           case 3:
             themeName = "tlan-theme";
             break;
+          case 4:
+            themeName = "yellow-theme";
+            break;
         };
         document.getElementById('app').className = themeName;
       }
@@ -124,9 +136,15 @@
 </script>
 
 <style lang="less">
-  // @import "../packages/styles/index.less";
+  @import "../YsStyle/styles/index.less";
 
   #app {
     padding: 20px 30px;
+
+    .homePage {
+      width: 100%;
+      height: 100%;
+      border: 1px solid red;
+    }
   }
 </style>

@@ -1,8 +1,8 @@
 // 引入的本地换肤函数
-// @import "../../YsTheme/changeTheme.less";
+@import "../../YsStyle/YsTheme/index.less";
 
 // 引入npm私服上的换肤函数(测试线上)
-@import "~ys-ui/YsStyle/YsTheme/index.less";
+// @import "~ys-ui/YsStyle/YsTheme/index.less";
 
 //蓝色
 .lan-theme {
@@ -20,5 +20,11 @@
 .tlan-theme {
   @mainColor: rgba(86, 177, 252, 1);
   @bodyBackground: rgba(209, 62, 57, 1);
+  .ChangeTheme(@mainColor, @bodyBackground);
+}
+// 黄色
+.yellow-theme {
+  @mainColor: rgba(255, 183, 0, 1);
+  @bodyBackground: rgba(60, 65, 71, 1);
   .ChangeTheme(@mainColor, @bodyBackground);
 }

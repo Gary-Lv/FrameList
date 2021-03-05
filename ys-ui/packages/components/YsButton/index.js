@@ -1,4 +1,7 @@
 import YsButton from "./YsButton.vue";
-import YsButtonGroup from "../YsButtonGroup";
-YsButton.Group = YsButtonGroup;
+
+YsButton.install = function(Vue) {
+  Vue.component(YsButton.name, YsButton);
+};
+
 export default YsButton;
