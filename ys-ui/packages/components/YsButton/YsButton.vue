@@ -12,7 +12,6 @@
 </template>
 <script>
   /**
-   * The only true button.
    * @displayName YsButton
    */
   export default {
