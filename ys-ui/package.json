@@ -1,6 +1,6 @@
 {
   "name": "ys-ui",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "files": [
     "dist",
@@ -22,8 +22,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "view-design": "^4.5.0",
-    "vue": "^2.6.11",
-    "ys-ui": "^1.0.0"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
