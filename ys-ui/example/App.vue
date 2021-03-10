@@ -1,137 +1,12 @@
 <template>
   <div id="app">
-    <div class="homePage pageBackground">
-      <h1>换肤功能</h1>
-      <Button style="background:rgba(58, 95, 157, 1);color:white" @click="ChanageTheme(1)">蓝色</Button>&nbsp;&nbsp;
-      <Button style="background:rgba(209, 62, 57, 1);color:white" @click="ChanageTheme(2)">红色</Button>&nbsp;&nbsp;
-      <Button style="background:rgba(86, 177, 252, 1);color:white" @click="ChanageTheme(3)">天蓝色</Button>&nbsp;&nbsp;
-      <Button style="background:rgba(255, 183, 0, 1);color:white" @click="ChanageTheme(4)">黄色</Button>&nbsp;&nbsp;
-      <br><br><br><br>
-      <h1>YsUI自定义组件</h1>
-      <YsButton>默认按钮</YsButton>&nbsp;&nbsp;
-      <ys-button type="primary">主要按钮</ys-button>&nbsp;&nbsp;
-      <ys-button type="info">信息按钮</ys-button>&nbsp;&nbsp;
-      <ys-button type="success">成功按钮</ys-button>&nbsp;&nbsp;
-      <ys-button type="warning">警告按钮</ys-button>&nbsp;&nbsp;
-      <ys-button type="error">错误按钮</ys-button>
-      <br /><br />
-      <!-- 带图标的按钮 -->
-      <ys-button icon="icon-circle-plus-outline">我是带图标的</ys-button>&nbsp;&nbsp;
-      <ys-button icon="icon-edit" type="error">我是左侧带图标的</ys-button>&nbsp;&nbsp;
-      <ys-button icon="icon-delete" type="success" iconPositon="right">我是右侧带图标的</ys-button>
-      <br><br>
-      <!-- loading 按钮 -->
-      <ys-button type="primary" loading>禁用loading按钮</ys-button>&nbsp;&nbsp;
-      <ys-button disabled>禁用按钮</ys-button><br><br>
-      <ys-button-group>
-        <ys-button type="primary">主要按钮</ys-button>
-        <ys-button type="primary">信息按钮</ys-button>
-      </ys-button-group>
-
-      <br><br><br><br>
-      <h1>IView组件</h1>
-      <Button type="primary">Primary</Button>
-      <br><br>
-      <Input v-model="value" placeholder="Enter something..." style="width: 300px" /><br><br>
-      <Input search placeholder="Enter something..." style="width: 300px" /><br><br>
-      <RadioGroup v-model="phone">
-        <Radio label="apple">
-          <Icon type="logo-apple"></Icon>
-          <span>Apple</span>
-        </Radio>
-        <Radio label="android">
-          <Icon type="logo-android"></Icon>
-          <span>Android</span>
-        </Radio>
-        <Radio label="windows">
-          <Icon type="logo-windows"></Icon>
-          <span>Windows</span>
-        </Radio>
-      </RadioGroup><br><br>
-      <CheckboxGroup v-model="fruit">
-        <Checkbox label="香蕉"></Checkbox>
-        <Checkbox label="苹果"></Checkbox>
-        <Checkbox label="西瓜"></Checkbox>
-      </CheckboxGroup><br><br>
-      <iSwitch size="large">
-        <span slot="open">开</span>
-        <span slot="close">关</span>
-      </iSwitch>&nbsp;&nbsp;
-      <iSwitch true-color="#13ce66" false-color="#ff4949" />&nbsp;&nbsp;
-      <iSwitch size="small" />
-      <br><br>
-      <Select v-model="model1" style="width:200px">
-        <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-      </Select><br><br>
-      <DatePicker type="date" placeholder="Select date" style="width: 200px"></DatePicker>
-
-      <br><br><br><br>
-      <h1>基于IView组件封装</h1>
-      <ys-button-iv type="primary">测试组件</ys-button-iv>
-      <br><br><br><br>
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import YsButtonIv from '../packages/components/YSButtonIv/YsButtonIv.vue';
   export default {
-    components: {
-      YsButtonIv
-    },
-    name: "App",
-    data() {
-      return {
-        phone: 'apple',
-        fruit: ['苹果'],
-        cityList: [{
-            value: 'New York',
-            label: 'New York'
-          },
-          {
-            value: 'London',
-            label: 'London'
-          },
-          {
-            value: 'Sydney',
-            label: 'Sydney'
-          },
-          {
-            value: 'Ottawa',
-            label: 'Ottawa'
-          },
-          {
-            value: 'Paris',
-            label: 'Paris'
-          },
-          {
-            value: 'Canberra',
-            label: 'Canberra'
-          }
-        ],
-        model1: ''
-      }
-    },
-    methods: {
-      ChanageTheme(id) {
-        let themeName = "";
-        switch (id) {
-          case 1:
-            themeName = "lan-theme";
-            break;
-          case 2:
-            themeName = "red-theme";
-            break;
-          case 3:
-            themeName = "tlan-theme";
-            break;
-          case 4:
-            themeName = "yellow-theme";
-            break;
-        };
-        document.getElementById('app').className = themeName;
-      }
-    }
+    name: "App"
   };
 </script>
 
@@ -139,12 +14,48 @@
   @import "../YsStyle/styles/index.less";
 
   #app {
-    padding: 20px 30px;
+    width: 100%;
+    height: 100%;
+    color: #e5e2e2;
+  }
 
-    .homePage {
-      width: 100%;
-      height: 100%;
-      border: 1px solid red;
+  // 滚动条样式修改
+
+  // ::-webkit-scrollbar 滚动条整体部分
+  // ::-webkit-scrollbar-thumb  滚动条里面的小方块，能向上向下移动（或往左往右移动，取决于是垂直滚动条还是水平滚动条）
+  // ::-webkit-scrollbar-track  滚动条的轨道（里面装有Thumb）
+  // ::-webkit-scrollbar-button 滚动条的轨道的两端按钮，允许通过点击微调小方块的位置。
+  // ::-webkit-scrollbar-track-piece 内层轨道，滚动条中间部分（除去）
+  // ::-webkit-scrollbar-corner 边角，即两个滚动条的交汇处
+  // ::-webkit-resizer 两个滚动条的交汇处上用于通过拖动调整元素大小的小控件
+  body::-webkit-scrollbar,
+  div::-webkit-scrollbar,
+  ul::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+  }
+
+  body::-webkit-scrollbar-track,
+  div::-webkit-scrollbar-track,
+  ul::-webkit-scrollbar-track {
+    background: rgba(1, 1, 1, 0.1);
+    border-radius: 2px;
+  }
+
+  body::-webkit-scrollbar-thumb,
+  div::-webkit-scrollbar-thumb,
+  ul::-webkit-scrollbar-thumb {
+    background: #bfbfbf;
+    border-radius: 10px;
+
+    &:hover {
+      background: #bfbfbf;
     }
+  }
+
+  body::-webkit-scrollbar-corner,
+  div::-webkit-scrollbar-corner,
+  ul::-webkit-scrollbar-corner {
+    background: #179a16;
   }
 </style>

@@ -1,12 +1,16 @@
+const path = require("path");
 module.exports = {
-  // set your styleguidist configuration here
   title: "远舢UI组件库",
-  defaultExample: true,
+  defaultExample: false,
   components: "packages/components/**/*.vue",
+  // ignore: ["**/packages/components/YsButton/YsButtonGroup.vue"],
   styleguideDir: "dist_styleguide",
   codeSplit: true,
-  skipComponentsWithoutExample: true,
-  require: ["./YsStyle/styles/index.less"], // 页面样式文件引入
+  skipComponentsWithoutExample: false,
+  require: [
+    "./YsStyle/styles/index.less",
+    "./node_modules/view-design/dist/styles/iview.css",
+  ], // 页面样式文件引入
   //页面配置
   usageMode: "expand", //文档中属性和方法的标签初始化状态，决定是否展开
   exampleMode: "expand", //文档中代码示例的标签初始化状态，决定是否展开。

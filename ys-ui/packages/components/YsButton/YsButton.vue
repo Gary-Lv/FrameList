@@ -1,9 +1,9 @@
 <template>
   <button class="ys-button" :class="btnClass" :disabled="loading || disabled">
     <!-- 加载图标 -->
-    <ys-icon v-if="loading" icon="icon-loading" class="btnLoadingIcon ys-load-loop" style="margin-right:5px"></ys-icon>
+    <YsIcon v-if="loading" icon="icon-loading" class="btnLoadingIcon ys-load-loop" style="margin-right:5px"></YsIcon>
     <!-- 图标 -->
-    <ys-icon :icon="icon" v-if="icon && !loading" class="btnIcon"></ys-icon>
+    <YsIcon :icon="icon" v-if="icon && !loading" class="btnIcon"></YsIcon>
     <span v-if="this.$slots.default">
       <!-- @slot 按钮显示的文本 -->
       <slot></slot>
@@ -13,6 +13,7 @@
 <script>
   /**
    * @displayName YsButton
+   * @example  ../../../describe_md/YsButton.md
    */
   export default {
     name: "YsButton",

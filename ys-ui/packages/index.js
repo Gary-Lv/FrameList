@@ -5,16 +5,15 @@ import IviewCom from "./iviewCom";
  * 自开发组件 或者 封装组件
  */
 import YsButton from "./components/YsButton";
-import YsButtonGroup from "./components/YsButtonGroup";
 import YsIcon from "./components/YsIcon";
-import YSButtonIv from "./components/YSButtonIv";
+import YsButtonIv from "./components/YsButtonIv";
 
 const YsComponents = {
   ...IviewCom,
   YsButton,
-  YsButtonGroup,
+  YsButtonGroup: YsButton.group,
   YsIcon,
-  YSButtonIv,
+  YsButtonIv,
 };
 
 // 安装方法

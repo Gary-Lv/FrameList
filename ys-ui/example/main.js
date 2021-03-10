@@ -1,5 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
+import router from "./router";
 
 // 引入组件库组件
 import ysUi from "../packages/index";
@@ -9,6 +10,4 @@ Vue.use(ysUi);
 
 Vue.config.productionTip = false;
 
-new Vue({
-  render: (h) => h(App),
-}).$mount("#app");
+new Vue({ router, render: (h) => h(App) }).$mount("#app");

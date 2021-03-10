@@ -4,9 +4,12 @@
   </svg>
 </template>
 <script>
+  /**
+   * @example  ../../../describe_md/YsIcon.md
+   */
   import "../../iconfont/iconfont";
   export default {
-    name: "ys-icon",
+    name: "YsIcon",
     props: {
       /**
        * iconfont字体名称

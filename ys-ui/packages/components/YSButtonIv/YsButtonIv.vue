@@ -7,6 +7,9 @@
   </Button>
 </template>
 <script>
+  /**
+   * @example  ../../../describe_md/YsButtonIv.md
+   */
   export default {
     name: "YsButtonIv",
     props: {
