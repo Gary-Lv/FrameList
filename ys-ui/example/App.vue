@@ -13,10 +13,17 @@
 <style lang="less">
   @import "../YsStyle/styles/index.less";
 
+
   #app {
     width: 100%;
     height: 100%;
-    color: #e5e2e2;
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: #e5e2e2;
+    }
   }
 
   // 滚动条样式修改

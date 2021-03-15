@@ -10,10 +10,11 @@
     </div>
     <div class="content">
       <div class="themeList">
-        <Button style="background:rgba(58, 95, 157, 1);color:white" @click="ChanageTheme(1)">蓝色主题</Button>&nbsp;&nbsp;
-        <Button style="background:rgba(209, 62, 57, 1);color:white" @click="ChanageTheme(2)">红色主题</Button>&nbsp;&nbsp;
-        <Button style="background:rgba(86, 177, 252, 1);color:white" @click="ChanageTheme(3)">天蓝色主题</Button>&nbsp;&nbsp;
-        <Button style="background:rgba(255, 183, 0, 1);color:white" @click="ChanageTheme(4)">黄色主题</Button>&nbsp;&nbsp;
+        <YsiButton size="large" style="background:rgba(58, 95, 157, 1);color:white"
+          @click="ChanageTheme(1)">蓝色主题</YsiButton>&nbsp;&nbsp;
+        <YsiButton size="large" style="background:rgba(209, 62, 57, 1);color:white" @click="ChanageTheme(2)">红色主题</YsiButton>&nbsp;&nbsp;
+        <YsiButton size="large" style="background:rgba(86, 177, 252, 1);color:white" @click="ChanageTheme(3)">天蓝色主题</YsiButton>&nbsp;&nbsp;
+        <YsiButton size="large" style="background:rgba(255, 183, 0, 1);color:white" @click="ChanageTheme(4)">黄色主题</YsiButton>&nbsp;&nbsp;
       </div>
       <div class="comContent">
         <transition name="fade" mode="out-in">
@@ -32,6 +33,9 @@
     },
     data() {
       return {}
+    },
+    mounted() {
+      this.ChanageTheme(1);
     },
     methods: {
       ChanageTheme(id) {

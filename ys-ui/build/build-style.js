@@ -19,10 +19,11 @@ gulp.task("css", async () => {
     .pipe(gulp.dest("../dist/styles"));
 });
 
-// 拷贝字体文件
-// gulp.task('fonts', function () {
-//     gulp.src('../src/styles/common/iconfont/fonts/*.*')
-//         .pipe(gulp.dest('../dist/styles/fonts'));
-// });
+// 拷贝字体文件;
+gulp.task("fonts", async () => {
+  gulp
+    .src("../YsStyle/styles/common/iconfont/fonts/*.*")
+    .pipe(gulp.dest("../dist/styles/fonts"));
+});
 
-gulp.task("default", gulp.series(["css"]));
+gulp.task("default", gulp.parallel("css", "fonts"));

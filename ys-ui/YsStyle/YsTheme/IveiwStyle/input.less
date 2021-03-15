@@ -1,5 +1,10 @@
-.Input(@backgroundColor) {
+.Input() {
   .ivu-input {
-    background-color: @backgroundColor;
+    // 解决日历组件的图标错位
+    &-suffix {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }

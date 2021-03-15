@@ -1,15 +1,17 @@
-@import "~view-design/dist/styles/iview.css"; // 引入Iview默认样式
+@import "../iview_dist_style/iview.css"; // 提供iview初始化样式
+
 // 引入修改的iview组件换肤函数
 @import "./IveiwStyle/input.less";
 
 .ChangeTheme(@primaryColor, @bodyBackground) {
-  @import "~view-design/src/styles/index.less";
-  // 引入自定义组件主题样式（在这里可以去修改对应的_var中的变量值，达到换肤）
   @import "../styles/index.less";
-
-  // 修改_var中声明的变量，包含了自定义的变量和iview提供的变量
+  // 修改custom中声明的变量，包含了自定义的变量和iview提供的变量
   @primary-color: @primaryColor;
+  @font-size-base: 14px;
+  @btn-font-size-large: 14px;
+
+  @input-bg: @bodyBackground; // input背景色
 
   // 修改input框背景色(需要和UI确定组件那些部分支持修改)
-  .Input(@bodyBackground);
+  .Input();
 }

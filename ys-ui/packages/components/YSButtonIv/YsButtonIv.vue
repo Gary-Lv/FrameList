@@ -1,14 +1,14 @@
 <template>
-  <Button :type="type" :size="size" :icon="icon">
+  <YsiButton :type="type" :size="size" :icon="icon">
     <span v-if="this.$slots.default">
       <!-- @slot 按钮显示的文本 -->
       <slot></slot>
     </span>
-  </Button>
+  </YsiButton>
 </template>
 <script>
   /**
-   * @example  ../../../describe_md/YsButtonIv.md
+   * @example ../../../describe_md/YsButtonIv.md
    */
   export default {
     name: "YsButtonIv",

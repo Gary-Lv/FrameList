@@ -21,7 +21,11 @@
 
     <br><br><br><br>
     <h1>IView组件</h1>
-    <Button type="primary">Primary</Button>
+    <YsiButton type="primary">Primary</YsiButton><br><br>
+    <h3>添加了自己的类型的按钮</h3>
+    <YsiButton type="ysConfirm">ysConfirm确认按钮</YsiButton>
+    <YsiButton type="ysCancel">ysCancel取消按钮</YsiButton>
+
 
     <br><br><br><br>
     <h1>基于IView组件封装</h1>

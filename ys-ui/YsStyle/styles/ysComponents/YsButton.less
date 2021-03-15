@@ -1,0 +1,124 @@
+@height: 42px;
+@color: #606266;
+@font-size: 16px;
+@border-color: #dcdfe6;
+@background: #ecf5ff;
+@active-color: #3a8ee6;
+
+.button-color(@color; @background; @border) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+  fill: @color;
+}
+
+.button-variant(@color; @background; @border) {
+  .button-color(@color, @background, @border);
+
+  &:hover {
+    .button-color(
+      tint(@color, 20%) ; tint(@background, 20%) ; tint(@border, 20%)
+    );
+  }
+
+  &:active,
+  &.active,
+  &:focus {
+    .button-color(
+      shade(@color, 5%) ; shade(@background, 5%) ; shade(@background, 5%)
+    );
+  }
+
+  // 禁用
+  &[disabled] {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      .button-color(black, #c5c8ce, #c5c8ce);
+    }
+  }
+}
+
+.ys-button {
+  border-radius: @btn-border-radius;
+  border: 1px solid @border-color;
+  height: @height;
+  line-height: 1;
+  font-size: @font-size;
+  cursor: pointer;
+  padding: 12px 18px;
+  display: inline-flex;
+  justify-content: center;
+  vertical-align: middle;
+  user-select: none;
+
+  &:hover {
+    border-color: @border-color;
+    background-color: @background;
+  }
+
+  &:focus,
+  &:active {
+    color: @active-color;
+    border-color: @active-color;
+    background-color: @background;
+    outline: none;
+  }
+
+  &-primary {
+    .button-variant(#ffff, @primary-color, @primary-color);
+  }
+
+  &-info {
+    .button-variant(#ffff, @info-color, @info-color);
+  }
+
+  &-success {
+    .button-variant(#ffff, @success-color, @success-color);
+  }
+
+  &-warning {
+    .button-variant(#ffff, @warning-color, @warning-color);
+  }
+
+  &-error {
+    .button-variant(#ffff, @error-color, @error-color);
+  }
+
+  .btnIcon,
+  .btnLoadingIcon {
+    width: 16px;
+    height: 16px;
+  }
+
+  // icon位置
+  &-icon-left {
+    .btnIcon {
+      order: 1;
+    }
+
+    span {
+      order: 2;
+      margin-left: 5px;
+    }
+  }
+
+  &-icon-right {
+    .btnIcon {
+      order: 2;
+      margin-left: 5px;
+    }
+
+    span {
+      order: 1;
+    }
+  }
+
+  //禁用
+  &-disabled {
+    cursor: not-allowed;
+    .button-variant(#ffff, #c5c8ce, #c5c8ce);
+  }
+}

@@ -4,10 +4,10 @@
   </svg>
 </template>
 <script>
-  /**
-   * @example  ../../../describe_md/YsIcon.md
-   */
   import "../../iconfont/iconfont";
+  /**
+   * @example ../../../describe_md/YsIcon.md
+   */
   export default {
     name: "YsIcon",
     props: {

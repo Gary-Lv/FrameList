@@ -1,4 +1,5 @@
 const path = require("path");
+
 module.exports = {
   title: "远舢UI组件库",
   defaultExample: false,
@@ -9,7 +10,6 @@ module.exports = {
   skipComponentsWithoutExample: false,
   require: [
     "./YsStyle/styles/index.less",
-    "./node_modules/view-design/dist/styles/iview.css",
   ], // 页面样式文件引入
   //页面配置
   usageMode: "expand", //文档中属性和方法的标签初始化状态，决定是否展开

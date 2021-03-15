@@ -1,7 +1,7 @@
 <template>
   <button class="ys-button" :class="btnClass" :disabled="loading || disabled">
     <!-- 加载图标 -->
-    <YsIcon v-if="loading" icon="icon-loading" class="btnLoadingIcon ys-load-loop" style="margin-right:5px"></YsIcon>
+    <YsIcon v-if="loading" icon="icon-loading" class="btnLoadingIcon ivu-load-loop" style="margin-right:5px"></YsIcon>
     <!-- 图标 -->
     <YsIcon :icon="icon" v-if="icon && !loading" class="btnIcon"></YsIcon>
     <span v-if="this.$slots.default">
@@ -13,7 +13,8 @@
 <script>
   /**
    * @displayName YsButton
-   * @example  ../../../describe_md/YsButton.md
+   * @example ../../../describe_md/YsButton.md
+   * @requires ./YsButtonGroup.vue
    */
   export default {
     name: "YsButton",
